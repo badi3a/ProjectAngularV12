@@ -12,15 +12,7 @@ export class AppComponent implements OnInit{
   title = 'ShopProject';
   constructor(private auth: AuthService) {
   }
-  ngOnInit(){
-
-    if(localStorage.getItem('loggedUserid')!=null && localStorage.getItem('loggedUserid')!=''){
-      let user = new User();
-      user.firstName=String(localStorage.getItem('loggedUserFirstName'));
-      user.lastName=String(localStorage.getItem('loggedUserLastName'));
-      user.picture=String(localStorage.getItem('loggedUserPicture'));
-       this.auth.curUser.next(user)
-    }
+  ngOnInit() {
   }
 
 }
