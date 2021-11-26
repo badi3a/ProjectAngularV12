@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../../core/model/user";
+import {Router} from "@angular/router";
+import {UserService} from "../../core/services/user.service";
 
 @Component({
   selector: 'app-form-user',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-user.component.css']
 })
 export class FormUserComponent implements OnInit {
-
-  constructor() { }
-
+  user: User;
+  constructor(private data:UserService, private router: Router) { }
   ngOnInit(): void {
+    this.user =  new User();
+
+  }
+  save(){
+    //traitement
+    this.user.accountCategory='Customer';
+    this.data.list.push(this.user)
+    this.router.navigate(['/user'])
   }
 
 }

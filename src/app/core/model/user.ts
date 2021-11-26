@@ -1,5 +1,5 @@
 export class User{
-  idCustomer: number;
+  idUser: number;
   firstName: string;
   lastName: string;
   birthDate: any;
@@ -8,4 +8,5 @@ export class User{
   profession: string;
   accountCategory: string;
   picture: string;
+
 }
