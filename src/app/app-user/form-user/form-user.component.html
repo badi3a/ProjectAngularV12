@@ -1,0 +1,45 @@
+<h1>Create a  new Account</h1>
+<form class="w-50 mx-auto" #f="ngForm">
+  <div class="form-group">
+    <label>First Name:</label>
+    <input type="text" name="firstName" class="form-control"
+           [(ngModel)]="user.firstName"
+           required minlength="3" pattern="[a-zA-Z]+$" #fn="ngModel">
+    <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+      <div *ngIf="fn.hasError('required')"> FirstName is a required field</div>
+      <div *ngIf="fn.hasError('minlength')"> FirstName minlength ies equal to 3</div>
+      <div *ngIf="fn.hasError('pattern')"> error msg Pattern</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Last Name:</label>
+    <input name="lastName" type="text" class="form-control" [(ngModel)]="user.lastName">
+  </div>
+  <div class="form-group">
+    <label>Email:</label>
+    <input name="email" type="email" class="form-control" [(ngModel)]="user.email">
+  </div>
+  <div class="form-group">
+    <label>Password:</label>
+    <input name="password" type="password" class="form-control" [(ngModel)]="user.password">
+  </div>
+  <div class="form-group">
+    <label>Picture:</label>
+    <input name="picture" type="text" class="form-control" [(ngModel)]="user.picture">
+  </div>
+  <div class="form-group">
+    <label>BirthDate:</label>
+    <input name="date" type="date" class="form-control" [(ngModel)]="user.birthDate">
+  </div>
+  <div class="form-group">
+    <label>Job:</label>
+    <input name="job" type="text" class="form-control" [(ngModel)]="user.profession">
+  </div>
+  <br>
+  <button class="btn btn-outline-success" (click)="save()"
+          [disabled]="f.invalid">
+    save
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-warning" (click)="f.reset()">reset</button>
+</form>

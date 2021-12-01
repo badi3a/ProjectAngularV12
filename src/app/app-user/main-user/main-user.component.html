@@ -1,0 +1,50 @@
+<!---start slide--->
+<!---<img src="assets/slide.png" id="slide">--->
+<!---end slide--->
+<br><br>
+<!---start usersList section--->
+<div class="row">
+  <div class="col-md-3">
+    <div class="card" style="width: 18rem;">
+      <img src="assets/admin.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Admin Account</h5>
+        <p class="card-text">An admin account has privileges to manage services for other people in the App.</p>
+        <a [routerLink]="['./category','Admin']" class="btn btn-primary">show all</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card" style="width: 18rem;">
+      <img src="assets/customer.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Customer Account</h5>
+        <p class="card-text">A Customer Account is a centralized place to manage all billing information about customers</p>
+        <a [routerLink]="['./category','Customer']"class="btn btn-primary">show all</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card" style="width: 18rem;">
+      <img src="assets/golden.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Golden Account</h5>
+        <p class="card-text">All Golden members  benefit from the features included with the Cambrian Golden Account </p>
+        <a [routerLink]="['./category','Golden Account']" class="btn btn-primary">show all</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card" style="width: 18rem;">
+      <img src="assets/blocked.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Blocked Account</h5>
+        <p class="card-text">an account that does not allow for unlimited  but instead has certain restrictions</p>
+        <a [routerLink]="['./category','Blocked Account']" class="btn btn-primary">show all</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---end usersList section--->
+<router-outlet></router-outlet>

@@ -1,0 +1,60 @@
+<form class="w-50 mx-auto" #f="ngForm">
+  <div class="form-group">
+    <label for="Title">Title of the Product</label>
+    <input type="text" name="Title" id="Title" class="form-control"
+           #nt="ngModel" required minlength="3" [(ngModel)]="product.title">
+    <div class="alert alert-danger" *ngIf="nt.touched&&nt.invalid">
+      <div *ngIf="nt.hasError('required')">Title is required</div>
+      <div *ngIf="nt.hasError('minlength')">Min Length is 3</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" class="form-control"
+           #nd="ngModel" required minlength="3" [(ngModel)]="product.description"
+    >
+    <div class="alert alert-danger" *ngIf="nd.touched&&nd.invalid">
+      <div *ngIf="nd.hasError('required')">description required</div>
+      <div *ngIf="nd.hasError('minlength')">description min length is 3</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input type="number" name="quantity" id="quantity" class="form-control"
+           #nq="ngModel" required  [(ngModel)]="product.quantity"
+    >
+    <div class="alert alert-danger" *ngIf="nq.touched&&nq.invalid">
+      <div *ngIf="nq.hasError('required')">quantity required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" name="price" id="price" class="form-control"
+           #nprice="ngModel" required  [(ngModel)]="product.price"
+    >
+    <div class="alert alert-danger" *ngIf="nprice.touched&&nprice.invalid">
+      <div *ngIf="nprice.hasError('required')">price required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="picture">Picture</label>
+    <input type="text" name="picture" id="picture" class="form-control"
+           #np="ngModel" required minlength="3" [(ngModel)]="product.picture"
+    >
+    <div class="alert alert-danger" *ngIf="np.touched&&np.invalid">
+      <div *ngIf="np.hasError('required')">picture URL required</div>
+      <div *ngIf="np.hasError('minlength')">picture URL min length is 3</div>
+    </div>
+  </div>
+  <br>
+  <button class="btn btn-outline-success" (click)="save()"
+          [disabled]="f.invalid">
+    save
+  </button>
+  &nbsp;
+  <button class="btn btn-outline-warning" (click)="f.reset()">reset</button>
+</form>

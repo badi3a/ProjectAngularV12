@@ -1,0 +1,27 @@
+
+<br>
+<div class="card" style="width: 18rem;">
+  <img src="{{product.picture}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}
+      <div id="action">
+        <button class="btn btn-outline-danger" (click)="deleteNotif()">
+          delete
+        </button>
+        &nbsp;
+        <button class="btn btn-outline-info" (click)="updateNotif()">Update</button>
+      </div>
+    </h5>
+    <p class="card-text">{{product.description}}</p>
+    <button class="btn btn-primary" (click)="notifierParent()">
+      {{product.nbrLike}} like
+    </button>
+    &nbsp;
+    <button class="btn btn-warning" style="float: right"
+            [disabled]="product.quantity==0">
+      Buy Product
+    </button>
+
+
+  </div>
+</div>
