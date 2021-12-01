@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
       {this.user=data;
         console.log(data)},
       ()=>{},
-      ()=>{this.user = new User()}
+      ()=>{}
     )
   }
 

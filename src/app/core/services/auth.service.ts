@@ -35,8 +35,8 @@ export class AuthService {
   }
   logOut(){
       this.validUser= false;
-      this.curUser.complete();
-    localStorage.removeItem('loggedUserid');
+      this.curUser.next(new User());
+      localStorage.removeItem('loggedUserid');
       localStorage.removeItem('loggedUser');
       localStorage.removeItem('loggedUserFirstName');
       localStorage.removeItem('loggedUserLastName');
