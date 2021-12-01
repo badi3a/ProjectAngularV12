@@ -36,12 +36,13 @@ export class AuthService {
   logOut(){
       this.validUser= false;
       this.curUser.complete();
+    localStorage.removeItem('loggedUserid');
       localStorage.removeItem('loggedUser');
       localStorage.removeItem('loggedUserFirstName');
       localStorage.removeItem('loggedUserLastName');
       localStorage.removeItem('loggedUserPicture');
       localStorage.setItem('isloggedIn',String(this.validUser));
-      this.router.navigate(['/login']);
+
   }
   //this method will check if the connected user is an admin or not in order to active
   //the backOffice app
@@ -59,6 +60,7 @@ export class AuthService {
       user.firstName=String(localStorage.getItem('loggedUserFirstName'));
       user.lastName=String(localStorage.getItem('loggedUserLastName'));
       user.picture=String(localStorage.getItem('loggedUserPicture'));
+      this.curUser.next(user);
      return user;
     }
     return null;

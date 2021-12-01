@@ -10,18 +10,24 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
   user: User;
-  constructor(private auth: AuthService, private router: Router) { }
+
+  constructor(private auth: AuthService, private router: Router, ) { }
 
   ngOnInit(): void {
+    this.auth.checkConnectedUser();
     this.auth.sharedUser.subscribe(
       (data:User)=>
-      {this.user=data},
+      {this.user=data;
+        console.log(data)},
       ()=>{},
       ()=>{this.user = new User()}
     )
   }
+
   logout(){
     this.auth.logOut();
+    this.ngOnInit();
+    this.router.navigate(['/login']);
   }
 
 
