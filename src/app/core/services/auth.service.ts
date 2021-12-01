@@ -54,16 +54,16 @@ export class AuthService {
   register(user: User){
     //this method will cnx to the WS auth implemented in the BackEnd Side
   }
-  checkConnectedUser(){
+  checkConnectedUser():boolean{
     let user = new User();
     if(localStorage.getItem('loggedUserid')!=null && localStorage.getItem('loggedUserid')!=''){
       user.firstName=String(localStorage.getItem('loggedUserFirstName'));
       user.lastName=String(localStorage.getItem('loggedUserLastName'));
       user.picture=String(localStorage.getItem('loggedUserPicture'));
       this.curUser.next(user);
-     return user;
+      return true;
     }
-    return null;
+    else return false;
   }
 
 }
