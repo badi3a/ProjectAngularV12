@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <img src="assets/store.jpg" id="logo">
@@ -8,29 +9,31 @@
           <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/user">User Management</a>
+          <a class="nav-link" routerLink="/usermodule">User Management</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/product">Product Management</a>
+          <a class="nav-link" routerLink="/productmodule">Product Management</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" routerLink="....">Provider Management</a>
         </li>
       </ul>
-      <ul  class="navbar-nav auth" *ngIf="user.firstName==null">
+      <ul  class="navbar-nav auth" *ngIf="!auth.isLogged()">
 
           <li class="nav-item">
-            <a class="btn btn-outline-primary" routerLink="/subscribe" >Subscribe</a>
+            <a class="btn btn-outline-primary" routerLink="/usermodule/subscribe" >Subscribe</a>
           </li>
           &nbsp;
           <li class="nav-item">
-            <a class="btn btn-outline-warning" routerLink="/login">Login</a>
+            <a class="btn btn-outline-warning" routerLink="/usermodule/login">Login</a>
           </li>
       </ul>
-        <ul  class="navbar-nav auth" *ngIf="user.firstName!=null">
-          <li class="nav-item">
-            Hello <b>{{user.firstName}}</b>
+
+        <ul  class="navbar-nav auth" *ngIf="auth.isLogged()" >
+          <li class="nav-item" >
+            Hello <b>{{firstname}}</b>
+
           </li>
           &nbsp;
           <li class="nav-item">
@@ -39,4 +42,6 @@
         </ul>
     </div>
   </div>
+
 </nav>
+

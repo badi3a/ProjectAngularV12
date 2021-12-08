@@ -2,8 +2,11 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../model/user";
 import {UserService} from "./user.service";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {
+  of
+} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +31,8 @@ export class AuthService {
         localStorage.setItem('loggedUserLastName',user.lastName);
         localStorage.setItem('loggedUserPicture',user.picture);
         localStorage.setItem('isloggedIn',String(this.validUser));
+
+
         this.curUser.next(user);
       }
     })
@@ -36,11 +41,8 @@ export class AuthService {
   logOut(){
       this.validUser= false;
       this.curUser.next(new User());
-      localStorage.removeItem('loggedUserid');
-      localStorage.removeItem('loggedUser');
-      localStorage.removeItem('loggedUserFirstName');
-      localStorage.removeItem('loggedUserLastName');
-      localStorage.removeItem('loggedUserPicture');
+      localStorage.clear();
+
       localStorage.setItem('isloggedIn',String(this.validUser));
 
   }
@@ -57,13 +59,20 @@ export class AuthService {
   checkConnectedUser(){
     let user = new User();
     if(localStorage.getItem('loggedUserid')!=null && localStorage.getItem('loggedUserid')!=''){
-      user.firstName=String(localStorage.getItem('loggedUserFirstName'));
-      user.lastName=String(localStorage.getItem('loggedUserLastName'));
-      user.picture=String(localStorage.getItem('loggedUserPicture'));
-      this.curUser.next(user);
-     return user;
+
+     return true;
     }
-    return null;
+    return false;
+  }
+
+  isLogged(){
+
+    if(localStorage.getItem('loggedUserid')!=null && localStorage.getItem('loggedUserid')!=''){
+
+     return true;
+    }
+    return false;
+    //return ;
   }
 
 }

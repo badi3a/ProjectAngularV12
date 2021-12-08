@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
 
   checkUser(myForm: FormGroup){
    if(this.auth.login(myForm.controls['email'].value, myForm.controls['password'].value)){
-     this.router.navigate(['']);
+    
+    this.router.navigate(['']);
    }
    else alert("please give a valid email and password")
   }
