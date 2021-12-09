@@ -6,14 +6,18 @@ import {NotFoundComponent} from "./shared/not-found/not-found.component";
 
 
 const routes: Routes = [
+  { path: 'user', loadChildren: () => import('./app-user/app-user.module').then(m => m.AppUserModule) },
+  { path: 'product', loadChildren: () => import('./app-product/app-product.module').then(m => m.AppProductModule) },
+
   {path: '',redirectTo:'user', pathMatch: 'full' },
   {path: '**',component: NotFoundComponent }
+
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    AppUserRoutingModule,
+    AppUserRoutingModule,/// va créer des prblms cote chargement de projet
     AppProductRoutingModule
   ],
   exports: [RouterModule]

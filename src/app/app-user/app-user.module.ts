@@ -17,7 +17,7 @@ import { MainUserComponent } from './main-user/main-user.component';
     MainUserComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule,// les directives
     ReactiveFormsModule,
     AppUserRoutingModule,
     FormsModule

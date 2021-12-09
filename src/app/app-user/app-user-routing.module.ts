@@ -8,16 +8,16 @@ import {UserListComponent} from "./user-list/user-list.component";
 
 
 const routes: Routes = [
-  {path: 'user', component: MainUserComponent, children:[
+  {path: '', component: MainUserComponent, children:[
       {path:'category/:category', component: UserListComponent}
     ]},
   {path:'login', component: LoginComponent},
-  {path:'user', component: MainUserComponent},
+  {path:'', component: MainUserComponent},
   {path:'subscribe', component: FormUserComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppUserRoutingModule { }

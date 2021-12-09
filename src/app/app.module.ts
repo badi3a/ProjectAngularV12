@@ -16,10 +16,10 @@ import {NotFoundComponent} from "./shared/not-found/not-found.component";
     NotFoundComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,//Application Web
     AppRoutingModule,
-    AppUserModule,
-    AppProductModule,
+    //AppUserModule,
+    //AppProductModule,
     FormsModule,
     HttpClientModule
   ],

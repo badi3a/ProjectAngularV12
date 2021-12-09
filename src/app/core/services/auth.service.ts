@@ -27,6 +27,7 @@ export class AuthService {
         //console.log(localStorage.getItem('loggedUserFirstName'))
         localStorage.setItem('loggedUserLastName',user.lastName);
         localStorage.setItem('loggedUserPicture',user.picture);
+        localStorage.setItem('userRole',user.accountCategory);
         localStorage.setItem('isloggedIn',String(this.validUser));
         this.curUser.next(user);
       }
@@ -36,8 +37,10 @@ export class AuthService {
   logOut(){
       this.validUser= false;
       this.curUser.next(new User());
+      //this.curUser.lift;
       localStorage.removeItem('loggedUserid');
       localStorage.removeItem('loggedUser');
+      localStorage.removeItem('userRole');
       localStorage.removeItem('loggedUserFirstName');
       localStorage.removeItem('loggedUserLastName');
       localStorage.removeItem('loggedUserPicture');
